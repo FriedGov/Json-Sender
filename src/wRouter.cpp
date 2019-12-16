@@ -3,38 +3,29 @@
 
 
 wRouter::wRouter(){
-    e_range = 0;
+    e_rssi = "NOT ASSIGNED";
     e_ssid = "NOT ASSIGNED";
 }
 
 
-wRouter::wRouter(int range, std::string ssid){
-    e_range = range;
+wRouter::wRouter(std::string rssi, std::string ssid, std::string mac){
+    e_rssi = rssi;
     e_ssid = ssid;
+    e_mac = mac;
 }
 
-std::string wRouter::toString(){
-    std::ostringstream st;
-    st << "range:" << e_range <<";ssid:" << e_ssid << ";";
-    return st.str();
-}
 
 std::string wRouter::toJson(){
     std::ostringstream st;
     st << "{";
-    st << "\"range\":" << e_range << ",";
+    st << "\"rssi\":" << e_rssi << ",";
     st << "\"ssid\": \"" << e_ssid << "\"";
+    st << "\"mac\": \"" << e_mac << "\"";
     st << "}";
     return st.str();
 }
 
-std::string wRouter::getMac(){
-    return e_ssid;
-}
 
-int wRouter::getRange(){
-    return e_range;
-}
         
         
     
