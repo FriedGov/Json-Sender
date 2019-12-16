@@ -56,8 +56,9 @@ int n = WiFi.scanNetworks();
             //Serial.print(WiFi.macAddress());
            // Serial.print(")");
             //Serial.println((WiFi.encryptionType(i) == WIFI_AUTH_OPEN)?" ":"*");
-           // char[] cha = WiFi.BSSID(i);
+           Serial.println(WiFi.BSSIDstr(i));
            // String macString = WiFi.BSSID(i)[0];
+
             wRouter obj(WiFi.RSSI(i),WiFi.SSID(i).c_str());
             rs[i] = obj;
             
