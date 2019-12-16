@@ -37,7 +37,6 @@ int n = WiFi.scanNetworks();
         Serial.println(" networks found");
         wRouter rs[n];
         for (int i = 0; i < n; ++i) {
-           Serial.println(WiFi.BSSIDstr(i));
             wRouter obj(String(WiFi.RSSI(i)).c_str() ,WiFi.SSID(i).c_str(),WiFi.BSSIDstr(i).c_str());
             rs[i] = obj;
             
