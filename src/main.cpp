@@ -47,21 +47,23 @@ int n = WiFi.scanNetworks();
 
         for (int i = 0; i < n; ++i) {
             // Print SSID and RSSI for each network found
-            Serial.print(i + 1);
-            Serial.print(": ");
-            Serial.print(WiFi.SSID(i));
-            Serial.print(" (");
-            Serial.print(WiFi.RSSI(i));
-            Serial.print("-");
-            Serial.print(WiFi.macAddress());
-            Serial.print(")");
-            Serial.println((WiFi.encryptionType(i) == WIFI_AUTH_OPEN)?" ":"*");
-            String macString = WiFi.macAddress();
+          //  Serial.print(i + 1);
+           // Serial.print(": ");
+            //Serial.print(WiFi.SSID(i));
+           // Serial.print(" (");
+           // Serial.print(WiFi.RSSI(i));
+           // Serial.print("-");
+            //Serial.print(WiFi.macAddress());
+           // Serial.print(")");
+            //Serial.println((WiFi.encryptionType(i) == WIFI_AUTH_OPEN)?" ":"*");
+            char[] cha = WiFi.BSSID(i);
+            String macString = String(WiFi.BSSID(i));
             wRouter obj(20,macString.c_str());
             rs[i] = obj;
-            delay(30);
+            
         }
-        createJson(rs,n);
+        Serial.println(createJson(rs,n));
+        delay(1000);
     }
         
 
@@ -80,6 +82,6 @@ int n = WiFi.scanNetworks();
 
 
  // Serial.println(createJson(rs,3));
-  delay(100000);
+  //delay(100000);
   // put your main code here, to run repeatedly:
 }
