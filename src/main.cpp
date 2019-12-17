@@ -1,7 +1,6 @@
 #include <Arduino.h>
 #include <wRouter.h>
 #include <scanner.h>
-#include <HTTPClient.h>
 #include "WiFi.h"
 
 scanner sca;    
