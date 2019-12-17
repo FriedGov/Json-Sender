@@ -19,7 +19,7 @@ std::string wRouter::toJson(){
     std::ostringstream st;
     st << "{";
     st << "\"rssi\":" << e_rssi << ",";
-    st << "\"ssid\": \"" << e_ssid << "\"";
+    st << "\"ssid\": \"" << e_ssid << "\",";
     st << "\"mac\": \"" << e_mac << "\"";
     st << "}";
     return st.str();

@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include <wRouter.h>
 #include <scanner.h>
-
+#include <HTTPClient.h>
 #include "WiFi.h"
 
 scanner sca;    
@@ -22,10 +22,9 @@ return json;
 
 void setup() {
   // put your setup code here, to run once:
-   Serial.begin(9600);
+    Serial.begin(9600);
     WiFi.mode(WIFI_STA);
     WiFi.disconnect();
-    
     delay(100);
 }
 
@@ -33,6 +32,7 @@ void setup() {
 void loop() {
 
 sca.scanNetworks();
-createJson(sca.getFoundNetworks(),sca.getNetworkAmmount());
+Serial.println(createJson(sca.getFoundNetworks(),sca.getNetworkAmmount()));
+delay(1000);
 
 }

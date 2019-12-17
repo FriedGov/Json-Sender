@@ -1,5 +1,4 @@
 #include <scanner.h>
-
 scanner::scanner(){
 
 }
@@ -8,6 +7,7 @@ scanner::scanner(){
 
  void scanner::scanNetworks(){ 
     networkAmmount = WiFi.scanNetworks();
+    foundRouters = new wRouter[networkAmmount];
         for (int i = 0; i < networkAmmount; ++i) {
             wRouter obj(String(WiFi.RSSI(i)).c_str() ,WiFi.SSID(i).c_str(),WiFi.BSSIDstr(i).c_str());
             foundRouters[i] = obj;
